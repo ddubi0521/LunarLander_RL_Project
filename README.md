@@ -363,13 +363,8 @@ lunar_lander_obstacle_rl/
 ├── lunar_lander_obstacle.py      # Custom LunarLander environment with obstacles
 ├── train_lunar_obstacle.py       # Training script
 ├── evaluate_lunar_obstacle.py    # Evaluation script
-├── results/                      # Saved models and logs
-│   ├── DQN_lunar_obstacle_final.zip
-│   ├── PPO_lunar_obstacle_final.zip
-│   └── A2C_lunar_obstacle_final.zip
 │
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 ---
