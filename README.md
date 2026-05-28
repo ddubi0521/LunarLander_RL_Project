@@ -1,32 +1,32 @@
 # 🚀 LunarLander Obstacle Avoidance with Reinforcement Learning
 
 > Gymnasium Box2D LunarLander 환경을 수정하여 공중 장애물이 포함된 착륙 환경을 만들고,
-> DQN, PPO, A2C 강화학습 알고리즘의 장애물 회피 및 착륙 성능을 비교한 프로젝트입니다.
+> DQN, PPO, A2C 강화학습 알고리즘의 장애물 회피 및 착륙 성능을 비교한 프로젝트이다.
 
 ---
 
 ## 📌 1. Project Overview
 
 `LunarLander`는 OpenAI Gym/Gymnasium에서 제공하는 대표적인 강화학습 환경으로,
-달 착륙선을 조종하여 지정된 착륙 지점에 안전하게 착륙시키는 문제입니다.
+달 착륙선을 조종하여 지정된 착륙 지점에 안전하게 착륙시키는 문제이다.
 
-기본 LunarLander 환경에서는 장애물이 존재하지 않기 때문에, 에이전트는 단순히 착륙 지점에 안정적으로 도달하는 것만 학습합니다.
-본 프로젝트에서는 원본 Box2D LunarLander 환경을 수정하여 **공중에 작은 장애물 3개**를 추가하였습니다.
+기본 LunarLander 환경에서는 장애물이 존재하지 않기 때문에, 에이전트는 단순히 착륙 지점에 안정적으로 도달하는 것만 학습한다.
+본 프로젝트에서는 원본 Box2D LunarLander 환경을 수정하여 **공중에 작은 장애물 3개**를 추가하였다.
 
-따라서 에이전트는 다음 두 가지 목표를 동시에 달성해야 합니다.
+따라서 에이전트는 다음 두 가지 목표를 동시에 달성해야 한다.
 
 * 공중 장애물과 충돌하지 않도록 회피
 * 최종적으로 착륙 지점에 안전하게 착륙
 
 본 프로젝트의 최종 목표는 수정된 LunarLander 환경에서 **DQN, PPO, A2C** 알고리즘을 학습시키고,
-각 알고리즘의 장애물 회피 및 착륙 성능을 비교하여 가장 적합한 알고리즘을 평가하는 것입니다.
+각 알고리즘의 장애물 회피 및 착륙 성능을 비교하여 가장 적합한 알고리즘을 평가하는 것이다.
 
 ---
 
 ## 🛠️ 2. Environment Modification
 
 본 프로젝트에서는 원본 Box2D LunarLander 코드를 수정하여
-기존의 단순 착륙 문제를 **장애물 회피 착륙 문제**로 확장했습니다.
+기존의 단순 착륙 문제를 **장애물 회피 착륙 문제**로 확장했다.
 
 ### 주요 수정 사항
 
@@ -43,7 +43,7 @@
 
 ### 기존 LunarLander 상태값
 
-기본 LunarLander의 observation은 다음 8개의 값으로 구성됩니다.
+기본 LunarLander의 observation은 다음 8개의 값으로 구성된다.
 
 | 상태값               | 설명               |
 | ----------------- | ---------------- |
@@ -58,7 +58,7 @@
 
 ### 수정된 상태값
 
-본 프로젝트에서는 장애물 3개에 대해 각각 상대 위치 정보를 추가했습니다.
+본 프로젝트에서는 장애물 3개에 대해 각각 상대 위치 정보를 추가했다.
 
 ```text
 obstacle 1: relative x, relative y
@@ -66,7 +66,7 @@ obstacle 2: relative x, relative y
 obstacle 3: relative x, relative y
 ```
 
-따라서 최종 observation은 다음과 같이 구성됩니다.
+따라서 최종 observation은 다음과 같이 구성된다.
 
 ```text
 기존 상태값 8개 + 장애물 상대 위치 6개 = 총 14차원 observation
@@ -76,7 +76,7 @@ obstacle 3: relative x, relative y
 
 ## 🎮 4. Action Space
 
-본 프로젝트에서는 LunarLander의 **이산형 action space**를 사용했습니다.
+본 프로젝트에서는 LunarLander의 **이산형 action space**를 사용했다.
 
 ```text
 0: 아무것도 하지 않음
@@ -85,14 +85,14 @@ obstacle 3: relative x, relative y
 3: 오른쪽 방향 엔진 점화
 ```
 
-즉, 에이전트는 매 step마다 4개의 행동 중 하나를 선택합니다.
+즉, 에이전트는 매 step마다 4개의 행동 중 하나를 선택한다.
 
 ```text
 Action Space: Discrete(4)
 ```
 
 따라서 본 프로젝트에서는 이산형 action space에 적용 가능한 알고리즘인
-**DQN, PPO, A2C**를 비교했습니다.
+**DQN, PPO, A2C**를 비교했다.
 
 ---
 
@@ -319,7 +319,7 @@ PPO는 가장 높은 평균 reward, 가장 낮은 reward 표준편차, 100% succ
 
 ## 🚧 10. Future Work
 
-향후 개선 방향은 다음과 같습니다.
+향후 개선 방향은 다음과 같다.
 
 * 장애물 위치를 매 episode마다 랜덤화
 * 장애물 개수 증가
@@ -332,16 +332,16 @@ PPO는 가장 높은 평균 reward, 가장 낮은 reward 표준편차, 100% succ
 
 ## 🔁 11. Discrete vs Continuous Action Space
 
-LunarLander는 설정에 따라 이산형과 연속형 action space를 모두 사용할 수 있습니다.
+LunarLander는 설정에 따라 이산형과 연속형 action space를 모두 사용할 수 있다.
 
 | Type       | Action Space             | Suitable Algorithms      |
 | ---------- | ------------------------ | ------------------------ |
 | Discrete   | `Discrete(4)`            | DQN, PPO, A2C            |
 | Continuous | `Box(-1, 1, shape=(2,))` | SAC, TD3, DDPG, PPO, A2C |
 
-본 프로젝트에서는 이산형 action space를 사용했기 때문에 DQN, PPO, A2C를 비교했습니다.
+본 프로젝트에서는 이산형 action space를 사용했기 때문에 DQN, PPO, A2C를 비교했다.
 
-연속형 환경으로 확장하려면 다음과 같이 설정할 수 있습니다.
+연속형 환경으로 확장하려면 다음과 같이 설정할 수 있다.
 
 ```python
 env = gym.make(
@@ -351,7 +351,7 @@ env = gym.make(
 )
 ```
 
-이 경우 에이전트는 엔진 출력 세기를 연속값으로 직접 제어하게 됩니다.
+이 경우 에이전트는 엔진 출력 세기를 연속값으로 직접 제어하게 된다.
 
 ---
 
@@ -380,7 +380,7 @@ lunar_lander_obstacle_rl/
 python train_lunar_obstacle.py
 ```
 
-In the training script, choose the algorithm.
+알고리즘을 선택한다.
 
 ```python
 train_model(
@@ -389,7 +389,7 @@ train_model(
 )
 ```
 
-Available algorithms:
+사용 가능한 알고리즘:
 
 ```python
 "DQN"
@@ -405,13 +405,13 @@ Available algorithms:
 python evaluate_lunar_obstacle.py
 ```
 
-To evaluate a specific model, change the algorithm name.
+특정 모델을 평가하려면 알고리즘 이름을 변경한다.
 
 ```python
 ALGO = "PPO"
 ```
 
-Available options:
+사용 가능한 알고리즘:
 
 ```python
 ALGO = "DQN"
